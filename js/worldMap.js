@@ -139,7 +139,7 @@ export class WorldMap {
   _createProjection() {
     // 使用等距圆柱投影（适合世界地图）
     this.projection = d3.geoNaturalEarth1()
-      .scale(650)
+      .scale(300)
       .translate([this.width / 2, this.height / 2]);
     
     this.path = d3.geoPath().projection(this.projection);
