@@ -1,6 +1,16 @@
-# 忽略Excel文件
-*.xlsx
-*.csv
+# 忽略系统文件
+Thumbs.db
+.DS_Store
+
+# 忽略批处理文件
+*.bat
+
+# 忽略数据缓存
+.cache/
+
+# 忽略日志文件
+*.log
+
 
 # 忽略编辑器配置文件
 .vscode/
