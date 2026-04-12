@@ -1,0 +1,138 @@
+/* 导航栏样式 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+/* 侧边栏 */
+.sidebar {
+  width: 12%;
+  background: #667eea;
+  color: white;
+  position: fixed;
+  left: 10%;
+  top: 0;
+  bottom: 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 30px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-header h2 {
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* 导航菜单 */
+.nav-menu {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.nav-item {
+  margin: 5px 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.nav-item.active .nav-link {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-weight: 600;
+}
+
+.nav-item.active .nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: white;
+}
+
+.nav-icon {
+  font-size: 3rem;
+  margin-right: 15px;
+  min-width: 24px;
+}
+
+.nav-text {
+  font-size: 3rem;
+}
+
+/* 主内容区域 */
+.main-content {
+  margin-left: 250px;
+  flex: 1;
+  padding: 0;
+  width: calc(100% - 250px);
+}
+
+/* 移动端响应式 */
+@media (max-width: 768px) {
+  .sidebar {
+    left: 0;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  /* 添加汉堡菜单按钮 */
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}
