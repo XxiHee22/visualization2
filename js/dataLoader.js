@@ -6,10 +6,10 @@ export class DataLoader {
   constructor() {
     this.DATA_PATHS = {
       usTopoJSON: 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
-      usCovidData: './visualization_dataset/COVID-19 Data.xlsx',
-      nationsCovidData: './visualization_dataset/COVID19_nations.xlsx',
-      globalCovidData: './visualization_dataset/covid_19_data_2.csv',
-      chinaCovidData: './visualization_dataset/covid_data_China.xlsx'
+      usCovidData: 'https://XxiHee22.github.io/visualization2/visualization_dataset/COVID-19 Data.xlsx',
+      nationsCovidData: 'https://XxiHee22.github.io/visualization2/visualization_dataset/COVID19_nations.xlsx',
+      globalCovidData: 'https://XxiHee22.github.io/visualization2/visualization_dataset/covid_19_data_2.csv',
+      chinaCovidData: 'https://XxiHee22.github.io/visualization2/visualization_dataset/covid_data_China.xlsx'
     };
   }
 
