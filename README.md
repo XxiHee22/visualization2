@@ -4,7 +4,7 @@
 
 本项目是一个交互式COVID-19疫情数据可视化系统，旨在通过多维度的可视化图表帮助用户理解和分析全球及区域疫情态势。系统采用纯前端技术栈，部署在GitHub Pages上，提供流畅的交互体验和丰富的数据洞察。
 
-**在线演示**: [点击访问](https://your-username.github.io/covid-19-visualization/)
+**在线演示**: [点击访问](https://XxiHee22.github.io/visualization2/)
 
 ## 核心问题与目标
 
