@@ -8,9 +8,14 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
-  display: flex;
   min-height: 100vh;
   background: #f5f7fa;
+}
+
+/* 容器 */
+.container-wrapper {
+  display: flex;
+  width: 100%;
 }
 
 /* 侧边栏 */
@@ -18,10 +23,7 @@ body {
   width: 12%;
   background: #667eea;
   color: white;
-  position: fixed;
-  left: 10%;
-  top: 0;
-  bottom: 0;
+  position: relative;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   transition: transform 0.3s ease;
@@ -92,10 +94,8 @@ body {
 
 /* 主内容区域 */
 .main-content {
-  margin-left: 250px;
   flex: 1;
   padding: 0;
-  width: calc(100% - 250px);
 }
 
 /* 移动端响应式 */
