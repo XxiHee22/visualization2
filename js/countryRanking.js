@@ -13,7 +13,7 @@ export class CountryRanking {
     // 图表尺寸
     this.width = 1200;
     this.height = 600;
-    this.margin = { top: 60, right: 100, bottom: 150, left: 150 };
+    this.margin = { top: 60, right: 100, bottom: 100, left: 150 };
     
     // SVG容器
     this.svg = null;
