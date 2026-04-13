@@ -260,14 +260,14 @@ export class ChinaTimeline {
   _createLegend(data) {
     const legend = this.g.append('g')
       .attr('class', 'legend')
-      .attr('transform', `translate(${this.width - this.margin.left - this.margin.right + 20}, 0)`);
+      .attr('transform', `translate(${this.width - this.margin.left - this.margin.right + 20}, -40)`);
 
     const legendItems = legend.selectAll('.legend-item')
       .data(data)
       .enter()
       .append('g')
       .attr('class', 'legend-item')
-      .attr('transform', (d, i) => `translate(0, ${i * 50})`);
+      .attr('transform', (d, i) => `translate(0, ${i * 20})`);
 
     legendItems.append('line')
       .attr('x1', 0)
