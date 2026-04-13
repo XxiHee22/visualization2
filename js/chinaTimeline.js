@@ -12,8 +12,8 @@ export class ChinaTimeline {
     this.tooltip = new Tooltip();
     
     // 图表尺寸
-    this.width = 900;
-    this.height = 500;
+    this.width = 1400;
+    this.height = 800;
     this.margin = { top: 60, right: 300, bottom: 180, left: 200 };  // 增加底部边距从120到150
     
     // SVG容器
@@ -121,7 +121,7 @@ export class ChinaTimeline {
 
     // 获取容器尺寸
     const containerWidth = container.clientWidth;
-    this.width = containerWidth > 0 ? containerWidth : 900;
+    this.width = containerWidth > 0 ? containerWidth : 1400;
     this.height = this.width * 0.55;
 
     // 筛选数据
@@ -183,7 +183,7 @@ export class ChinaTimeline {
       .attr('x', (this.width - this.margin.left - this.margin.right) / 2)
       .attr('y', this.height - this.margin.top - this.margin.bottom + 135)  // 增加距离从90到110
       .attr('text-anchor', 'middle')
-      .style('font-size', '48px')
+      .style('font-size', '16px')
       .text('日期');
 
     this.g.append('text')
@@ -192,7 +192,7 @@ export class ChinaTimeline {
       .attr('x', -(this.height - this.margin.top - this.margin.bottom) / 2)
       .attr('y', -150)
       .attr('text-anchor', 'middle')
-      .style('font-size', '48px')
+      .style('font-size', '16px')
       .style('font-weight', 'bold')
       .text('治愈病例数'); // 改为治愈病例数
   }
@@ -280,7 +280,7 @@ export class ChinaTimeline {
     legendItems.append('text')
       .attr('x', 40)
       .attr('y', 20)
-      .style('font-size', '42px')
+      .style('font-size', '16px')
       .text(d => d.province);
   }
 
@@ -340,6 +340,8 @@ export class ChinaTimeline {
         .ticks(8, ",.0f")
         .tickValues([1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000]
           .filter(v => v >= this.yScale.domain()[0] && v <= this.yScale.domain()[1])));
+     .selectAll('text')
+      .style('font-size', '12px');
 
     // 移除旧折线和数据点
     this.g.selectAll('.line').remove();
