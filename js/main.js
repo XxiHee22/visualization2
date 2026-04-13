@@ -138,7 +138,7 @@ function addBackButton() {
   button.textContent = '← 返回世界地图';
   button.style.cssText = `
     position: absolute;
-    top: -30px;
+    top: -10px;
     left: 10px;
     padding: 10px 20px;
     background: #667eea;
