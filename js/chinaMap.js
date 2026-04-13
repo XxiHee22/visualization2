@@ -285,10 +285,10 @@ class ChinaMapViewer {
         borderColor: 'transparent',
         textStyle: {
           color: 'white',
-          fontSize: 48,
+          fontSize: 14,
           fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif'
         },
-        padding: [38, 52],
+        padding: [12, 16],
         formatter: (params) => {
           let provinceName = params.name;
           
@@ -315,8 +315,8 @@ class ChinaMapViewer {
           const data = self.provinceDataMap[normalizedName];
           
           if (data) {
-            let html = `<div style="font-size: 60px; font-weight: bold; margin-bottom: 15px; border-bottom: 2px solid rgba(255, 255, 255, 0.3); padding-bottom: 10px;">${provinceName}</div>`;
-            html += `<div style="font-size: 48px; line-height: 1.8;">`;
+            let html = `<div style="font-size: 16px; font-weight: bold; margin-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); padding-bottom: 5px;">${provinceName}</div>`;
+            html += `<div style="font-size: 14px; line-height: 1.6;">`;
             
             // 显示COVID数据 - 所有标签使用黄色
             if (data.confirmed !== undefined && data.confirmed > 0) {
@@ -332,7 +332,7 @@ class ChinaMapViewer {
             html += `</div>`;
             return html;
           }
-          return `<div style="font-size: 60px; font-weight: bold;">${provinceName}</div>`;
+          return `<div style="font-size: 16px; font-weight: bold;">${provinceName}</div>`;
         }
       },
       visualMap: {
@@ -350,10 +350,10 @@ class ChinaMapViewer {
         },
         textStyle: {
           color: '#333',
-          fontSize: 32  // 放大字体
+          fontSize: 12  // 从32缩小到12
         },
-        itemWidth: 40,  // 增加色块宽度
-        itemHeight: 400,  // 增加色块高度（横向时这是长度）
+        itemWidth: 15,  // 从40缩小到15
+        itemHeight: 150,  // 从400缩小到150
         right: '5%',  // 右下角
         bottom: '5%'
       },
@@ -363,7 +363,7 @@ class ChinaMapViewer {
         map: 'china',
         roam: false,
         zoom: 1.5,
-        top: 500,  // 固定像素值，向下移动200像素
+        top: '15%',  // 从10%改为15%，向下移动
         data: mapDataWithValues,
         label: {
           show: false
@@ -604,15 +604,15 @@ export class ChinaMap {
     button.textContent = '← 返回';
     button.style.cssText = `
       position: absolute;
-      top: 10px;
+      top: -30px;
       left: 10px;
-      padding: 20px 40px;
+      padding: 10px 20px;
       background: #4CAF50;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 42px;
+      font-size: 14px;
       font-weight: bold;
       z-index: 1000;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -649,10 +649,10 @@ export class ChinaMap {
     const hint = document.createElement('div');
     hint.id = 'china-interaction-hint';
     hint.innerHTML = `
-      <div style="font-size: 48px; margin-bottom: 12px; color: #667eea; font-weight: 600;">
+      <div style="font-size: 14px; margin-bottom: 8px; color: #667eea; font-weight: 600;">
         💡 交互提示
       </div>
-      <div style="font-size: 38px; line-height: 1.8; color: #555;">
+      <div style="font-size: 12px; line-height: 1.6; color: #555;">
         • 鼠标悬停在省份上，颜色条会显示对应数值位置<br>
         • 鼠标悬停在颜色条上，会高亮对应数值范围的省份<br>
         • 可拖动颜色条手柄筛选数据范围
@@ -660,15 +660,15 @@ export class ChinaMap {
     `;
     hint.style.cssText = `
       position: absolute;
-      bottom: 150px;
+      bottom: 20px;
       left: 20px;
-      padding: 30px 40px;
+      padding: 15px 20px;
       background: rgba(255, 255, 255, 0.95);
       border: 2px solid #667eea;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       z-index: 999;
-      max-width: 700px;
+      max-width: 400px;
     `;
 
     container.appendChild(hint);
