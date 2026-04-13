@@ -506,7 +506,7 @@ export class ChinaMap {
       container.innerHTML = '<div style="text-align:center;padding:50px;color:#666;font-size:24px;">正在加载地图数据...</div>';
 
       // 加载中国地图数据 - 使用本地文件
-      const mapUrl = './visualization_dataset/Chinamap.geojson';
+      const mapUrl = 'https://XxiHee22.github.io/visualization2/visualization_dataset/Chinamap.geojson';
       console.log('加载中国地图数据（本地文件）...');
       const mapData = await loadMapData(mapUrl);
       console.log('✓ 地图数据加载成功');
