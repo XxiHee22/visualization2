@@ -141,7 +141,7 @@ export class WorldMap {
      const scaleFactor = this.width / 960 * 140;
     this.projection = d3.geoNaturalEarth1()
       .scale(scaleFactor)
-      .translate([this.width / 2, this.height / 2]+30);
+      .translate([this.width / 2, this.height / 2]);
     
     this.path = d3.geoPath().projection(this.projection);
     
