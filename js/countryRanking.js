@@ -74,7 +74,7 @@ export class CountryRanking {
       .attr('class', 'y-axis-label')
       .attr('transform', 'rotate(-90)')
       .attr('x', -(this.height - this.margin.top - this.margin.bottom) / 2)
-      .attr('y', -300)
+      .attr('y', -80)
       .attr('text-anchor', 'middle')
       .style('font-size', '20px')
       .style('font-weight', 'bold')
@@ -161,7 +161,7 @@ export class CountryRanking {
       .attr('x', d => this.xScale(d.country) + this.xScale.bandwidth() / 2)
       .attr('y', d => this.yScale(d[this.currentMetric]) - 5)
       .attr('text-anchor', 'middle')
-      .style('font-size', '24px')
+      .style('font-size', '14px')
       .style('font-weight', 'bold')
       .text(d => d[this.currentMetric].toLocaleString());
   }
