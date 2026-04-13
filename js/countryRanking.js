@@ -74,7 +74,7 @@ export class CountryRanking {
       .attr('class', 'y-axis-label')
       .attr('transform', 'rotate(-90)')
       .attr('x', -(this.height - this.margin.top - this.margin.bottom) / 2)
-      .attr('y', -80)
+      .attr('y', -95)
       .attr('text-anchor', 'middle')
       .style('font-size', '20px')
       .style('font-weight', 'bold')
