@@ -230,7 +230,7 @@ export class USMap {
     const legendWidth = 200;
     const legendHeight = 15;
     const legendX = this.width - legendWidth - 20;
-    const legendY = this.height - 50;
+    const legendY = this.height - 30;
 
     // 创建图例组
     const legend = this.svg.append('g')
