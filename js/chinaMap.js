@@ -505,9 +505,9 @@ export class ChinaMap {
       // 显示加载提示
       container.innerHTML = '<div style="text-align:center;padding:50px;color:#666;font-size:24px;">正在加载地图数据...</div>';
 
-      // 加载中国地图数据
-      const mapUrl = 'https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json';
-      console.log('加载中国地图数据...');
+      // 加载中国地图数据 - 使用本地文件
+      const mapUrl = './visualization_dataset/Chinamap.geojson';
+      console.log('加载中国地图数据（本地文件）...');
       const mapData = await loadMapData(mapUrl);
       console.log('✓ 地图数据加载成功');
 
@@ -571,9 +571,6 @@ export class ChinaMap {
       // 添加返回按钮
       this._addBackButton();
       
-      // 添加重要提示
-      this._addImportantNotice();
-      
       // 添加交互说明
       this._addInteractionHint();
 
@@ -598,9 +595,8 @@ export class ChinaMap {
       errorDiv.textContent = `加载失败: ${error.message}`;
       container.appendChild(errorDiv);
       
-      // 即使加载失败也显示返回按钮和重要提示
+      // 即使加载失败也显示返回按钮
       this._addBackButton();
-      this._addImportantNotice();
     }
   }
 
@@ -669,7 +665,7 @@ export class ChinaMap {
       </div>
       <div style="font-size: 15px; line-height: 1.8; color: #2c3e50; text-align: center;">
         老师您好，中国地图的信息源使用 aliyun，这个 API 因为敏感原因在 GitHub Pages 部署会被完全拒绝，因此加载不出来。<br><br>
-        <strong style="color: #e74c3c; font-size: 16px;">请您在 VSCode 本地用 Live Server 运行以查看效果</strong>
+        <strong style="color: #e74c3c; font-size: 16px;">请您在 VSCode 本地用 Live Server 运行以查看效果！</strong>
       </div>
     `;
     notice.style.cssText = `
@@ -756,12 +752,6 @@ export class ChinaMap {
     const button = document.getElementById('china-back-btn');
     if (button) {
       button.remove();
-    }
-    
-    // 移除重要提示
-    const notice = document.getElementById('china-important-notice');
-    if (notice) {
-      notice.remove();
     }
     
     // 移除交互说明
