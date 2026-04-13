@@ -190,7 +190,7 @@ export class ChinaTimeline {
       .attr('class', 'y-axis-label')
       .attr('transform', 'rotate(-90)')
       .attr('x', -(this.height - this.margin.top - this.margin.bottom) / 2)
-      .attr('y', -90)
+      .attr('y', -80)
       .attr('text-anchor', 'middle')
       .style('font-size', '16px')
       .style('font-weight', 'bold')
