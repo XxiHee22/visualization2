@@ -61,13 +61,14 @@ export class USMap {
    */
   _createProjection() {
     // 使用Albers USA投影（适合美国地图）
+    const scaleFactor = this.width / 960 * 550;
     this.projection = d3.geoAlbersUsa()
-      .scale(4000)  // 从4800缩小到4000
+      .scale(scaleFactor)
       .translate([this.width / 2, this.height / 2]);
     
     this.path = d3.geoPath().projection(this.projection);
     
-    console.log(`投影设置: scale=4000, translate=[${this.width/2}, ${this.height/2}]`);
+    console.log(`投影设置: scale=${scaleFactor}, translate=[${this.width/2}, ${this.height/2}]`);
   }
 
   /**
@@ -104,7 +105,7 @@ export class USMap {
     // 获取容器尺寸
     const containerWidth = container.clientWidth;
     this.width = containerWidth > 0 ? containerWidth : 960;
-    this.height = this.width * 0.625; // 保持16:10比例
+    this.height = this.width * 0.55; // 与世界地图保持一致的比例
     console.log(`✓ 容器尺寸: ${this.width} x ${this.height}`);
 
     // 创建投影和颜色比例尺
@@ -226,10 +227,10 @@ export class USMap {
    * 创建图例
    */
   _createLegend() {
-    const legendWidth = 600;
-    const legendHeight = 40;
-    const legendX = this.width - legendWidth - 60;
-    const legendY = this.height - 120;
+    const legendWidth = 200;
+    const legendHeight = 15;
+    const legendX = this.width - legendWidth - 20;
+    const legendY = this.height - 50;
 
     // 创建图例组
     const legend = this.svg.append('g')
@@ -263,39 +264,39 @@ export class USMap {
 
     // 添加"低"标签（左侧）
     legend.append('text')
-      .attr('x', -15)
+      .attr('x', -5)
       .attr('y', legendHeight / 2)
       .attr('text-anchor', 'end')
       .attr('dominant-baseline', 'middle')
-      .style('font-size', '48px')
+      .style('font-size', '12px')
       .style('fill', '#333')
       .text('低');
 
     // 添加"高"标签（右侧）
     legend.append('text')
-      .attr('x', legendWidth + 15)
+      .attr('x', legendWidth + 5)
       .attr('y', legendHeight / 2)
       .attr('text-anchor', 'start')
       .attr('dominant-baseline', 'middle')
-      .style('font-size', '48px')
+      .style('font-size', '12px')
       .style('fill', '#333')
       .text('高');
 
     // 添加最小值标签（左下）
     legend.append('text')
       .attr('x', 0)
-      .attr('y', legendHeight + 50)
+      .attr('y', legendHeight + 15)
       .attr('text-anchor', 'start')
-      .style('font-size', '42px')
+      .style('font-size', '11px')
       .style('fill', '#666')
       .text('0');
 
     // 添加最大值标签（右下）
     legend.append('text')
       .attr('x', legendWidth)
-      .attr('y', legendHeight + 50)
+      .attr('y', legendHeight + 15)
       .attr('text-anchor', 'end')
-      .style('font-size', '42px')
+      .style('font-size', '11px')
       .style('fill', '#666')
       .text(Math.round(maxConfirmed).toLocaleString());
   }
