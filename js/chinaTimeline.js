@@ -14,7 +14,7 @@ export class ChinaTimeline {
     // 图表尺寸
     this.width = 1400;
     this.height = 800;
-    this.margin = { top: 60, right: 300, bottom: 180, left: 200 };  // 增加底部边距从120到150
+    this.margin = { top: 60, right: 150, bottom: 180, left: 100 };  // 增加底部边距从120到150
     
     // SVG容器
     this.svg = null;
@@ -190,7 +190,7 @@ export class ChinaTimeline {
       .attr('class', 'y-axis-label')
       .attr('transform', 'rotate(-90)')
       .attr('x', -(this.height - this.margin.top - this.margin.bottom) / 2)
-      .attr('y', -150)
+      .attr('y', -90)
       .attr('text-anchor', 'middle')
       .style('font-size', '16px')
       .style('font-weight', 'bold')
@@ -260,7 +260,7 @@ export class ChinaTimeline {
   _createLegend(data) {
     const legend = this.g.append('g')
       .attr('class', 'legend')
-      .attr('transform', `translate(${this.width - this.margin.left - this.margin.right + 20}, -40)`);
+      .attr('transform', `translate(${this.width - this.margin.left - this.margin.right + 20}, -50)`);
 
     const legendItems = legend.selectAll('.legend-item')
       .data(data)
