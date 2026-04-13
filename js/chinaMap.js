@@ -363,7 +363,7 @@ class ChinaMapViewer {
         map: 'china',
         roam: false,
         zoom: 1.5,
-        top: '15%',  // 从10%改为15%，向下移动
+        top: '25%',  // 从10%改为15%，向下移动
         data: mapDataWithValues,
         label: {
           show: false
