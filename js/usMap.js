@@ -61,7 +61,7 @@ export class USMap {
    */
   _createProjection() {
     // 使用Albers USA投影（适合美国地图）
-    const scaleFactor = this.width / 960 * 50;
+    const scaleFactor = this.width / 960 * 550;
     this.projection = d3.geoAlbersUsa()
       .scale(scaleFactor)
       .translate([this.width / 2, this.height / 2]);
