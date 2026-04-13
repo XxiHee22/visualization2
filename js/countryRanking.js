@@ -11,9 +11,9 @@ export class CountryRanking {
     this.tooltip = new Tooltip();
     
     // 图表尺寸
-    this.width = 800;
-    this.height = 400;
-    this.margin = { top: 60, right: 50, bottom: 150, left: 400 };
+    this.width = 1200;
+    this.height = 600;
+    this.margin = { top: 60, right: 100, bottom: 150, left: 150 };
     
     // SVG容器
     this.svg = null;
@@ -76,7 +76,7 @@ export class CountryRanking {
       .attr('x', -(this.height - this.margin.top - this.margin.bottom) / 2)
       .attr('y', -300)
       .attr('text-anchor', 'middle')
-      .style('font-size', '48px')
+      .style('font-size', '20px')
       .style('font-weight', 'bold')
       .text(this._getMetricLabel());
   }
@@ -110,7 +110,7 @@ export class CountryRanking {
 
     // 获取容器尺寸
     const containerWidth = container.clientWidth;
-    this.width = containerWidth > 0 ? containerWidth : 800;
+    this.width = containerWidth > 0 ? containerWidth : 1200;
     this.height = this.width * 0.5 + 100; // 保持2:1比例并增加20px高度
 
     // 获取Top 6国家
@@ -161,7 +161,7 @@ export class CountryRanking {
       .attr('x', d => this.xScale(d.country) + this.xScale.bandwidth() / 2)
       .attr('y', d => this.yScale(d[this.currentMetric]) - 5)
       .attr('text-anchor', 'middle')
-      .style('font-size', '36px')
+      .style('font-size', '24px')
       .style('font-weight', 'bold')
       .text(d => d[this.currentMetric].toLocaleString());
   }
@@ -273,7 +273,7 @@ export class CountryRanking {
       .attr('x', d => this.xScale(d.country) + this.xScale.bandwidth() / 2)
       .attr('y', this.height - this.margin.top - this.margin.bottom)
       .attr('text-anchor', 'middle')
-      .style('font-size', '36px')
+      .style('font-size', '24px')
       .style('font-weight', 'bold')
       .transition()
       .duration(500)
