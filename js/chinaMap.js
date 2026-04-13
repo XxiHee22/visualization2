@@ -506,7 +506,7 @@ export class ChinaMap {
       container.innerHTML = '<div style="text-align:center;padding:50px;color:#666;font-size:24px;">正在加载地图数据...</div>';
 
       // 加载中国地图数据
-      const mapUrl = 'https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json';
+      const mapUrl = 'https://cdn.jsdelivr.net/npm/echarts@5.4.3/map/json/china.json';
       console.log('加载中国地图数据...');
       const mapData = await loadMapData(mapUrl);
       console.log('✓ 地图数据加载成功');
