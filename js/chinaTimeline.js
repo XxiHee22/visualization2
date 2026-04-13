@@ -227,10 +227,10 @@ export class ChinaTimeline {
         .attr('class', 'dot')
         .attr('cx', t => this.xScale(t.date))
         .attr('cy', t => this.yScale(Math.max(t.recovered, 1))) // 确保至少为1
-        .attr('r', 8)
+        .attr('r', 3)
         .attr('fill', this.colorScale(d.province))
         .attr('stroke', '#fff')
-        .attr('stroke-width', 2)
+        .attr('stroke-width', 1)
         .style('cursor', 'pointer')
         .on('mouseover', function(event, t) {
           self.tooltip.show({
@@ -238,7 +238,7 @@ export class ChinaTimeline {
             date: t.date,
             recovered: t.recovered // 改为治愈数
           }, event);
-          d3.select(this).attr('r', 12);
+          d3.select(this).attr('r', 5);
         })
         .on('mousemove', function(event, t) {
           self.tooltip.show({
@@ -249,7 +249,7 @@ export class ChinaTimeline {
         })
         .on('mouseout', function() {
           self.tooltip.hide();
-          d3.select(this).attr('r', 8);
+          d3.select(this).attr('r', 4);
         });
     });
   }
