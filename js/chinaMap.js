@@ -506,7 +506,7 @@ export class ChinaMap {
       container.innerHTML = '<div style="text-align:center;padding:50px;color:#666;font-size:24px;">正在加载地图数据...</div>';
 
       // 加载中国地图数据
-  const mapUrl = 'https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json';
+      const mapUrl = 'https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json';
       console.log('加载中国地图数据...');
       const mapData = await loadMapData(mapUrl);
       console.log('✓ 地图数据加载成功');
@@ -571,6 +571,9 @@ export class ChinaMap {
       // 添加返回按钮
       this._addBackButton();
       
+      // 添加重要提示
+      this._addImportantNotice();
+      
       // 添加交互说明
       this._addInteractionHint();
 
@@ -585,7 +588,19 @@ export class ChinaMap {
 
     } catch (error) {
       console.error('地图初始化失败:', error);
-      container.innerHTML = `<div style="text-align:center;padding:50px;color:#d32f2f;font-size:24px;">加载失败: ${error.message}</div>`;
+      
+      // 清空容器
+      container.innerHTML = '';
+      
+      // 创建错误提示容器
+      const errorDiv = document.createElement('div');
+      errorDiv.style.cssText = 'text-align:center;padding:50px;color:#d32f2f;font-size:24px;';
+      errorDiv.textContent = `加载失败: ${error.message}`;
+      container.appendChild(errorDiv);
+      
+      // 即使加载失败也显示返回按钮和重要提示
+      this._addBackButton();
+      this._addImportantNotice();
     }
   }
 
@@ -637,6 +652,63 @@ export class ChinaMap {
   }
 
   /**
+   * 添加重要提示
+   */
+  _addImportantNotice() {
+    const container = document.getElementById(this.containerId);
+    if (!container) return;
+
+    // 检查是否已存在提示
+    if (document.getElementById('china-important-notice')) return;
+
+    const notice = document.createElement('div');
+    notice.id = 'china-important-notice';
+    notice.innerHTML = `
+      <div style="font-size: 18px; margin-bottom: 12px; color: #e74c3c; font-weight: bold; text-align: center;">
+        ⚠️ 重要提示 ⚠️
+      </div>
+      <div style="font-size: 15px; line-height: 1.8; color: #2c3e50; text-align: center;">
+        老师您好，中国地图的信息源使用 aliyun，这个 API 因为敏感原因在 GitHub Pages 部署会被完全拒绝，因此加载不出来。<br><br>
+        <strong style="color: #e74c3c; font-size: 16px;">请您在 VSCode 本地用 Live Server 运行以查看效果</strong>
+      </div>
+    `;
+    notice.style.cssText = `
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 30px 40px;
+      background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+      border: 4px solid #e74c3c;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(231, 76, 60, 0.4);
+      z-index: 10000;
+      max-width: 700px;
+      min-width: 500px;
+      animation: pulse 2s ease-in-out infinite;
+    `;
+
+    // 添加动画样式
+    if (!document.getElementById('china-notice-animation')) {
+      const style = document.createElement('style');
+      style.id = 'china-notice-animation';
+      style.textContent = `
+        @keyframes pulse {
+          0%, 100% {
+            box-shadow: 0 10px 40px rgba(231, 76, 60, 0.4);
+          }
+          50% {
+            box-shadow: 0 10px 50px rgba(231, 76, 60, 0.6);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    container.appendChild(notice);
+  }
+
+  /**
    * 添加交互说明
    */
   _addInteractionHint() {
@@ -684,6 +756,12 @@ export class ChinaMap {
     const button = document.getElementById('china-back-btn');
     if (button) {
       button.remove();
+    }
+    
+    // 移除重要提示
+    const notice = document.getElementById('china-important-notice');
+    if (notice) {
+      notice.remove();
     }
     
     // 移除交互说明
