@@ -91,7 +91,7 @@ body {
 
 .chart-container {
   width: 100%;
-  min-height: 25em;
+  min-height: 37.5em;
   position: relative;
 }
 
@@ -407,3 +407,4 @@ svg {
     min-height: 15em;
   }
 }
+
