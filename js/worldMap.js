@@ -138,7 +138,7 @@ export class WorldMap {
    */
   _createProjection() {
     // 使用等距圆柱投影（适合世界地图）
-     const scaleFactor = this.width / 960 * 325;
+     const scaleFactor = this.width / 960 * 140;
     this.projection = d3.geoNaturalEarth1()
       .scale(scaleFactor)
       .translate([this.width / 2, this.height / 2]);
@@ -182,7 +182,7 @@ export class WorldMap {
     // 获取容器尺寸
     const containerWidth = container.clientWidth;
     this.width = containerWidth > 0 ? containerWidth : 960;
-    this.height = this.width * 0.625;
+    this.height = this.width * 0.55;
     console.log(`✓ 容器尺寸: ${this.width} x ${this.height}`);
 
     // 创建投影和颜色比例尺
@@ -375,9 +375,9 @@ export class WorldMap {
   _addTitle() {
     const titleGroup = this.svg.append('text')
       .attr('x', this.width / 2)
-      .attr('y', 100)  // 从50增加到100，向下移动50像素
+      .attr('y', 30)  // 从100改为30，向上移动
       .attr('text-anchor', 'middle')
-      .style('font-size', '54px')
+      .style('font-size', '16px')
       .style('font-weight', 'bold')
       .style('fill', '#666');
     
