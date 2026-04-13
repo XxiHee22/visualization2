@@ -14,7 +14,7 @@ export class ChinaTimeline {
     // 图表尺寸
     this.width = 1400;
     this.height = 800;
-    this.margin = { top: 60, right: 150, bottom: 180, left: 100 };  // 增加底部边距从120到150
+    this.margin = { top: 60, right: 150, bottom: 100, left: 100 };  // 增加底部边距从120到150
     
     // SVG容器
     this.svg = null;
